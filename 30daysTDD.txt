@@ -1,0 +1,63 @@
+30 Days of TDD: Day One – What is TDD and Why Should I Use It?
+
+What is Unit Test? 
+
+A unit test is a test that tests ONE specific requirement for ONE specific method.
+
+Unit tests that follow the one requirement/one method rule have the following attributes:
+
+· Targeted: Unit tests that test one thing (including one set of inputs) at a time are targeted.
+
+· Isolated: The code you are testing should be isolated from other code in the application as well as any external dependencies or events
+
+· Repeatable & Predictable: A unit test should be capable of being run over and over and assuming that the code under test and the test itself have not changed, producing the same result.
+
+· Independent: Generally speaking you have no guarantee that your unit tests are going to run in any specific order. Nor should your tests expect or require this.
+
+What is TDD?
+
+The first “D” in TDD stands for Driven. The idea is that the first thing a developer does is write a test based on the current specification they are working on. This test should fail as the functionality is relies on does not exist yet. The developer’s job is to then write the simplest code that will make the test pass. If more specifications exist, write more tests and repeat the cycle refactoring and refining your code as you go. If all the specifications have tests and all the tests pass, you are done.
+
+Why should I use TDD?
+
+Benefits of TDD code is that code will have fewer defects and increased code quality.
+
+*******************************************************************************
+
+30 Days of TDD: Day Two – A Review of Object Oriented Principles
+
+What is OOP?
+
+Object Oriented Programming is a software development technique where a developer will create an abstraction (in code) of a real world object or concept. When developing application using OOP, we will define Classes that model real world objects. 
+
+A Class is a definition of what an object should look like. It’s the blueprint you create by writing the C# or VB.NET that has the class’s member variable and methods. 
+
+An Object is an instantiation of a Class. When you declare a variable of type class and either accept an instantiated object or you create an object using the “new” keyword, you get an Object based on the Class that was used to create the object.
+
+OOP has three major principles: Encapsulation, Inheritance and Polymorphism
+
+Encapsulation: Encapsulation is often referred to as the “Black Box” rule. This means that external code cannot directly see or change the state of an object. Any access to the internals must occur through a public API. This enables the object to ensure that its internal state is always valid; meaning that the internal state can only be changed via a public method. 
+
+Inheritance: It is the Parent/child relationship. The parent class is also called Base class from which the child class or derived class inherit the properties. 
+example: Vehicle (Base class) -> Plane, Car and Boat (Derived classes) 
+
+Polymorphism: Polymorphism is the concept that although two classes may be similar in that that share a similar set of behaviors, and based on those shared behaviors can be treated as identical, they can implement that behavior very different ways.
+For example, each of the vehicles inherit from Vehicle, but they move in different ways; cars drive on the road, boats float in the water and planes fly in the air.
+
+Interface: An Interface is simply a contract that states that your code will implement and support a specific public API. Basically it’s a list of public methods and properties that you promise to have defined on your class. How this functionality is implemented is not part of the contract, just that the methods and properties are there and can be called.
+
+******************************************************************************************
+
+30 Days of TDD: Day Three – Your First Test
+
+The easiest way to write unit tests in C# or VB.NET is to use a unit test framework. NUnit is fully featured, widely used and enjoys a large amount of community support.
+
+When it comes to writing unit tests, the Arrange, Act, Assert pattern (AAA) has become the logical and preferred standard.
+
+AAA reflects the three steps that all unit tests carry out. Arrange refers to setting up your test by defining the inputs and expected outputs. 
+
+Act is the next pattern, in which the method that is being tested is called and the result captured. At this time we have to decide what new method (the one required by this requirement, and by extension this test) is called.
+
+The Assert class is a static class that is part of the NUnit framework and provides a collection of methods to evaluate data and signal that a test has either passed, failed or the result was inconclusive.
+
+****************************************************************************************
