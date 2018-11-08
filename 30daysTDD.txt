@@ -61,3 +61,39 @@ Act is the next pattern, in which the method that is being tested is called and 
 The Assert class is a static class that is part of the NUnit framework and provides a collection of methods to evaluate data and signal that a test has either passed, failed or the result was inconclusive.
 
 ****************************************************************************************
+
+30 Days of TDD: Day Five – Make Your Code SOLID
+
+Is Your Code SOLID?
+
+SOLID is a five design principles intended to make software designs more understandable, flexible and maintainable. It was introduced by Robert. C. Martin in 2000. 
+
+SOLID stands for:
+S - Single Responsibility Principle: 
+a class should have only a single responsibility (i.e. changes to only one part of the software's specification should be able to affect the specification of the class).
+
+That is each method and each class should be responsible for one, and only one task. For example let’s consider a class that functions as a shopping cart for an e-commerce website. As a virtual shopping cart it would be logical for the class to hold a collection of items that a user has added to the cart to purchase and perhaps a way to communicate with a service for the user to checkout. 
+
+To extend this example let’s say that the site has a loyalty rewards program that rewards points to customers based on purchases. Any functionality to award, track or manage points would not be appropriate to add to the shopping cart. That functionality should reside in a separate service. The shopping cart should not be responsible for, or actually have any concept of the rewards program. The shopping cart has one job; store a list of items the user wants to purchase. Therefore the shopping cart only has one reason to change; the methodology of storing the list of items a customer has selected has changed. Changes to the rewards program should have no effect on the shopping cart, and thus not require that class to change if a change is made to the rewards program.
+
+
+O - Open/Close Principle:
+"software entities … should be open for extension, but closed for modification."  It means simply this: We should write our modules so that they can be extended, without requiring them to be modified. In other
+words, we want to be able to change what the modules do, without changing the source code of the modules. OCP states that software, be it a method or a class, should be open for extension, but closed to modification. OCP unifies two OOP concepts Encapsulation and Inheritance.
+
+L - Liskov Substiution Principle:
+"objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program." The Liskov Substitution Principle (LSP) states that an object in your application should be able to be replaced with a type derived from it without breaking the application. By way of a review, if a class inherits from a base class, then the base class is said to be the “super” class and the inherited class is a “derived” class. For example, Animal would be a super class of Dog, whereas Dog would be a derived class from Animal. According to LSP, if my application is expecting an object of type “Animal” I should be able to pass in any class derived from Animal (Dog, Cat, Fish, etc.) without there being any problem or issue. The application will treat it like a generic animal (it will only be able to call methods on the Animal public API) and doesn’t have to know or care specifically what type of object was actually passed in.
+
+I - Interface Segregation principle:
+"many client-specific interfaces are better than one general-purpose interface." According to ISP a large, bulky interface for any service that satisfies all clients is the wrong way to go; instead you should have several smaller and more finely grained interfaces that are targeted to specific business needs. The benefits of this principle happen to tie very closely with why it’s important to TDD. A large interface full of methods and properties a client rarely uses makes that interface complex and cumbersome. Dealing with a smaller and more targeted interface makes developing against that service much easier. And since a class can implement as many interfaces as you need it to, there’s really not any technological barrier to keeping these interfaces finely grained. In TDD, smaller interfaces are easier to mock, making our tests smaller, less complex and easier to understand. For example; you may have a service that approves all loan applications for a bank. But your clients may be subdivided between secured loans (mortgages, car loans, etc.) and unsecured loans (credit cards, line of credit). Moreover, the API to your service may have separate and distinct methods for each type of loan.
+
+D - Dependency Inversion Principle:
+one should "depend upon abstractions, [not] concretions. The DIP is the idea that code should depend on abstractions; not concrete implementations. Furthermore, those abstractions should not depend on the details; the details should depend on the abstractions. 
+
+For example, you have to sell a Human Resources software package. The application can be used with a variety of different database services. The application has an employee management service that among other things updates employee information in the corporate database. The employee management service likely has a component that controls database access. You wouldn’t write the employee management service in a manner where it depended on a specific MS SQL Server component or an Oracle component. Instead you would write it to depend on a generic data services component, from which an MS SQL component and Oracle component can be derived. This way I can use either component with my installation of the software and so long as they both derive from the common data services component ancestor my software won’t know (or care) which specific component it’s using. 
+
+In this case we’ve inverted the dependency; instead of the employee management service being depended on lower level and more detailed MS SQL Server or Oracle components it’s now dependent on an abstraction that the two database components are also dependent on. 
+
+Please note; Dependency Inversion is not the same thing as Dependency Injection. Dependency Injection is a methodology of achieving Dependency Inversion, but they are not the same thing.
+
+***********************************************************************************************
