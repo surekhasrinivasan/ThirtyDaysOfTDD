@@ -97,3 +97,21 @@ In this case we’ve inverted the dependency; instead of the employee management s
 Please note; Dependency Inversion is not the same thing as Dependency Injection. Dependency Injection is a methodology of achieving Dependency Inversion, but they are not the same thing.
 
 ***********************************************************************************************
+
+30 Days of TDD: Day Six – What Is Dependency Injection?
+
+Coupling and binding in software is a fact of life. As developers we try to make our applications as loosely coupled as possible, but at the end of the day we have to bind to something in order for the various components we create to be usable.
+
+“Uncle” Bob Martin’s SOLID five principles contribute to the ability to create a loosely coupled application, two specifically spell out how to accomplish this namely: Liskov Substitution Principle and Dependency Inversion Principle. 
+
+The Liskov Substitution Principle (LSP) states that we can substitute a derived class for a base class without breaking the application. We can extend that concept to interfaces by saying classes that implement a common interface (a common public API) may be substituted for one another. 
+For example: a bird, plane and a superman are different from each other but they can all fly. So long as they implement IFly interface which is the component that does Fly function thats all we care about. 
+
+The Dependency Inversion Principle (DIP) tells us that our code should depend on abstractions, not concrete implementations. For example: If an application need to store data. If it bounds itself to a concrete instance of a relational database, like SQl Server then it is kind of closed off to other implementations of data stores like, file systems, web services, object databases or anything else that could be used to hold data. This design brings in a limitation into my application by being reliant on a concrete type of data store instead of the concept of “something that can store data.” 
+
+By using the concepts of LSP and DIP, a methodology was derived to create applications with loosely coupled dependencies called Dependency Injection (DI). DI removes the static binding of dependencies by having the consumer of the class provide implementations that it wants the object to use. 
+
+Dependency Injection is a simple yet powerful technique. It enables you to create loosely couple applications by differing the binding of our applications dependencies until runtime. Additionally we can specify our dependencies as abstractions and actually bind to a concrete implementation that is based on that abstraction. This keeps our software flexible and open to change.
+
+****************************************************************************************************
+   
