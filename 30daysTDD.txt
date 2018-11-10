@@ -113,5 +113,38 @@ By using the concepts of LSP and DIP, a methodology was derived to create applic
 
 Dependency Injection is a simple yet powerful technique. It enables you to create loosely couple applications by differing the binding of our applications dependencies until runtime. Additionally we can specify our dependencies as abstractions and actually bind to a concrete implementation that is based on that abstraction. This keeps our software flexible and open to change.
 
+
 ****************************************************************************************************
-   
+
+30 Days of TDD: Day Seven – Software Factories and DI Frameworks   
+
+DI give us a technique to create an application of loosely bound dependencies. By passing the components that our class is dependent on as constructor arguments we can accomplish two things. First we can make our class dependent on abstractions and not concrete instances. Secondly we can postpone the decision of which concrete instances are used until runtime. This presents us with a new problem. When we instantiate a new instance of a class, the code instantiating that class has to create the components that the instance of our class will be bound to. This reintroduces our tightly coupled static binding. 
+
+In addition we have now violated another SOLID Principle, the Single Responsibility Principle(SRP). That is we have not only moved the responsibility for creating the components our child classes are dependent on to their parents, we’ve also put those parents in a position where they need to know which concrete classes to supply to the child class they now are responsible for creating. 
+
+The parent class should be responsible for whatever its primary function is and should only change if something about that primary function changes. Now it has to change if some aspect of its child class changes and effect’s its dependencies.
+
+Software Factories
+
+One solution to the above problem is the use of a software factory. A software factory is a pattern used to abstract away the necessary knowledge and code needed to create instance of classes. There are several types of Software Factory patterns, each designed to address different situations and needs.
+
+While software factories are effective, they are not necessarily ideal. While specific types of factory patterns are designed to address specific needs, they all require a bit of maintenance, even in smaller applications. And while the code to build a factory is easy to implement, it’s repetitive and prone to mistakes.
+
+Dependency Injection
+
+Dependency Injection frameworks work similar to software factories but provide a benefit by automating a lot of the tasks that we would normally have to perform manually.
+
+There are many different DI frameworks like Ninject, Structure Map and Microsoft Unity. 
+
+While each DI framework will have different terms for their components, they all boil down to four essential moving parts:
+
+The Application – Our application, or a part of it that needs an instance of a class.
+The Kernel or the Container – The interface to our application for the framework. we ask it for instances of classes.
+The Provider – This contains the rules and directions for building the various classes and their dependencies.
+The Created Class – This is the thing that gets created by the kernel and returned to our application. It’s an instance of our class with all its dependencies.
+
+To use Ninject Framework we can download Ninject from the Ninject website and reference the ninject.dll assembly manually, or use NuGet to download and bind the ninject.dll assembly automatically.
+
+For Ninject the first thing to do is define a Module. This is where the binding rules for our application is defined. To create a module we need to create a class and have it inherit from NinjectModule. This class is in the Ninject.Module namespace. NinjectModule has an abstract method called Load that we will need to override. This is where we put the binding rules for our classes.
+
+*****************************************************************************************************
