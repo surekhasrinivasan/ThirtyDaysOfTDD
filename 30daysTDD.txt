@@ -148,3 +148,11 @@ To use Ninject Framework we can download Ninject from the Ninject website and re
 For Ninject the first thing to do is define a Module. This is where the binding rules for our application is defined. To create a module we need to create a class and have it inherit from NinjectModule. This class is in the Ninject.Module namespace. NinjectModule has an abstract method called Load that we will need to override. This is where we put the binding rules for our classes.
 
 *****************************************************************************************************
+
+30 Days of TDD – Day Nine – Refactoring Basics
+
+Martin Fowler has defined refactoring as “… a controlled technique for improving the design of an existing code base.” Essentially refactoring is about finding ways to make our code better. “Better” can mean many things. Sometimes it means changing code to increase readability. Sometimes it means removing instances of repeated logic or code. Sometimes it means separating large methods or classes to make them more manageable. There are many reasons to refactor code. 
+
+Refactoring is an important step in TDD. We often hear the phrase “Red, Green, Refactor.” The “Red” refers to the idea that we write a test and see it fail first. Once the code has been written to make the test pass, we have reached the “Green” part of our workflow; our code works and meets the given need of the application as defined by the unit test. Refactoring is the final step. Periodically refining our code make it more readable, more optimized, easier to work with and more flexible overall.
+
+*********************************************************************************************************
