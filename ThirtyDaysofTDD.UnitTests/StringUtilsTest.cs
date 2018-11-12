@@ -10,14 +10,6 @@ namespace ThirtyDaysofTDD.UnitTests
     [TestFixture]
     public class StringUtilsTest
     {
-        private StringUtils _stringUtils;
-
-        [SetUp]
-        public void SetupStringUtilTests()
-        {
-            _stringUtils = new StringUtils();
-        }
-
         [Test]
         public void ShouldBeAbleToCountNumberOfLettersInSimpleSentence()
         {
@@ -27,9 +19,9 @@ namespace ThirtyDaysofTDD.UnitTests
 
             var expectedResult = 2;
 
-            //var stringUtils = new StringUtils();
+            var stringUtils = new StringUtils();
 
-            int result = _stringUtils.FindNumberOfOccurences(sentenceToScan, characterToScanFor);
+            int result = stringUtils.FindNumberOfOccurences(sentenceToScan, characterToScanFor);
 
             Assert.AreEqual(expectedResult, result);
         }
@@ -43,9 +35,9 @@ namespace ThirtyDaysofTDD.UnitTests
 
             var expectedResult = 5;
 
-            //var stringUtils = new StringUtils();
+            var stringUtils = new StringUtils();
 
-            int result = _stringUtils.FindNumberOfOccurences(sentenceToScan, characterToScanFor);
+            int result = stringUtils.FindNumberOfOccurences(sentenceToScan, characterToScanFor);
 
             Assert.AreEqual(expectedResult, result);
         }
@@ -55,9 +47,9 @@ namespace ThirtyDaysofTDD.UnitTests
         {
             var sentenceToScan = "This test should throw an exception";
             var characterToScanFor = "x"; //"xx" will not pass the test
-            //var stringUtils = new StringUtils();
+            var stringUtils = new StringUtils();
 
-            _stringUtils.FindNumberOfOccurences(sentenceToScan, characterToScanFor);
+            stringUtils.FindNumberOfOccurences(sentenceToScan, characterToScanFor);
         }
 
     }
