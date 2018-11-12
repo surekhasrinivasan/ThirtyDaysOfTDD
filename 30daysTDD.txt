@@ -156,3 +156,16 @@ Martin Fowler has defined refactoring as “… a controlled technique for improving
 Refactoring is an important step in TDD. We often hear the phrase “Red, Green, Refactor.” The “Red” refers to the idea that we write a test and see it fail first. Once the code has been written to make the test pass, we have reached the “Green” part of our workflow; our code works and meets the given need of the application as defined by the unit test. Refactoring is the final step. Periodically refining our code make it more readable, more optimized, easier to work with and more flexible overall.
 
 *********************************************************************************************************
+
+30 Days of TDD – Day Ten – More Refactoring and NUnit Features
+
+Our unit tests are code just like our business code. And just like our business code it occasionally needs to be reviewed and improved. Refactoring our tests is just as important as refactoring your business code and should be part of our normal code review process.
+
+Using the SetUp attribute enables us to define one method that runs before each test. In cases where our class under test maintains some state that needs to be destroyed and rebuilt before each test, this is a good option. But if a class doesn’t have any internal state, there’s no need to keep re-creating it for every test. In this case we can use the NUnit attribute TestFixtureSetUp to define our setup method. This attributes works in a similar way to SetUp, but instead of running once for each test, it runs once for each instance of test fixture class. 
+
+Example: In our case our test fixture class has three tests. Whereas SetUp would have run three times (once for each test in the fixture), TestFixtureSetUp runs once and all three tests use the same instance of StringUtils created by the setup method.
+
+SetUp and TextFixtureSetUp: NUnit expects only one instance of these to be in a test fixture. You can have one of each in your test fixture, but you can’t have more that one of each. For example, if you have two methods decorated with the SetUp attribute the code will compile, but NUnit will not be able to run your tests.
+
+*********************************************************************************************************
+
