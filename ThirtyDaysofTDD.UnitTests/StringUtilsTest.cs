@@ -19,9 +19,9 @@ namespace ThirtyDaysofTDD.UnitTests
 
             var expectedResult = 2;
 
-            //var stringUtils = new StringUtils();
+            var stringUtils = new StringUtils();
 
-            int result = StringUtils.FindNumberOfOccurences(sentenceToScan, characterToScanFor);
+            int result = stringUtils.FindNumberOfOccurences(sentenceToScan, characterToScanFor);
 
             Assert.AreEqual(expectedResult, result);
         }
@@ -35,9 +35,9 @@ namespace ThirtyDaysofTDD.UnitTests
 
             var expectedResult = 5;
 
-            //var stringUtils = new StringUtils();
+            var stringUtils = new StringUtils();
 
-            int result = StringUtils.FindNumberOfOccurences(sentenceToScan, characterToScanFor);
+            int result = stringUtils.FindNumberOfOccurences(sentenceToScan, characterToScanFor);
 
             Assert.AreEqual(expectedResult, result);
         }
@@ -46,10 +46,10 @@ namespace ThirtyDaysofTDD.UnitTests
         public void ShouldGetAnArgumentExceptionWhenCharacterToScanForIsLargerThanOneCharacter()
         {
             var sentenceToScan = "This test should throw an exception";
-            var characterToScanFor = "xx";
-            //var stringUtils = new StringUtils();
+            var characterToScanFor = "x"; //"xx" will not pass the test
+            var stringUtils = new StringUtils();
 
-            StringUtils.FindNumberOfOccurences(sentenceToScan, characterToScanFor);
+            stringUtils.FindNumberOfOccurences(sentenceToScan, characterToScanFor);
         }
 
     }

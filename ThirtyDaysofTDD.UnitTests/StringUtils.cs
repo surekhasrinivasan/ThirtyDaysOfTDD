@@ -4,7 +4,7 @@ namespace ThirtyDaysofTDD.UnitTests
 {
     public class StringUtils
     {
-        public static int FindNumberOfOccurences(string sentenceToScan, string characterToScanFor)
+        public int FindNumberOfOccurences(string sentenceToScan, string characterToScanFor)
         {
             if(characterToScanFor.Length != 1)
             {
